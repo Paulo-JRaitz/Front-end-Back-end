@@ -1,0 +1,73 @@
+app.use(express.json()); express passa a entender requisições com o corpo no formato json
+Metodos HTTP: get, post, put e delete app.post
+Tipos de parâmetros do express:
+ Query Params: request.query => para metodos Get, incorporados na url da aplicação request.query(Filtros, ordenação, paginação e etc...).
+    Exemplo:
+        url: http://localhost:3333/users?search=Paulo
+        app.get('/users', (request, response) => {
+          console.log(request.query);
+          return response.json(request.query);
+        });
+ Route Params: request.params => (identificar um recurso na alteração ou remoção (Put, Delete)).
+    Exemplo: 
+        url: http://localhost:3333/users/1
+        app.delete('/users/:id', (request, response) => {
+          console.log(request.params);
+          return response.json({ message: 'Fala doidooo!' });
+        });
+ Body: request.body => Post e Put Corpo da requisição. (dados para criação ou alteração de registro).
+    exemplo: 
+        Corpo da requisição
+        {
+          "name":"Paulo Raitz",
+          "email":"paulo.jraitz@gmail.com"
+        }
+        app.post('/create', (request, response) => {
+          console.log(request.body);
+          return response.json(request.body)
+        });
+=================================================
+Conexão com Banco de dados
+MongoDB (não relacional)
+
+
+const MongoClient = require('mongodb').MongoClient;
+const uri = "";
+const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+client.connect(err => {
+  const collection = client.db("test").collection("devices");
+  // perform actions on the collection object
+  client.close();
+});
+
+=================================================
+Erro na hora da refatoração
+    /src 
+      ~index.js
+      ~routes.js 
+        /models //São a representação das entidades de armazenamento no nosso database exemplo funcionarios, desenvolvedores. eschema é a estruturação de uma entidade no banco de dados
+
+                |_ importar modulo de roteamento do express 
+Error: Cannot find module 'C:\Users\Paulo Raitz\Documents\Dev\backend\index.js'
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:880:15)
+    at Function.Module._load (internal/modules/cjs/loader.js:725:27)
+    at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)
+    at internal/main/run_main_module.js:17:47 {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: []
+}
+[nodemon] app crashed - waiting for file changes before starting...
+
+Resolve parando a aplicação e rodando o script npm run <nome do projeto>
+
+=================================================
+
+Biblioteca axios / responsavel por fazer chamadas a outras apis
+
+=================================================
+os controlers podem ser definidos como
+index - metodo para retornar uma lista por exemplo top 10 produtos mais vendidos.
+show - metodo para retornar um unico produto, funcionari etc.
+store - metodo para criar uma nova instancia no banco de dados, funcionario, produto etc.
+updade -  metodo para lalterar atributos de uma elemento do meu banco de dados, nome do produto nome do funcionario etc.
+destroy -  metodo para deletar instancias atributos e propriedades.

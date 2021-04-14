@@ -1,0 +1,126 @@
+@import url('./Global.css');
+main {
+  flex: 1;
+}
+main ul {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  list-style: none;
+}
+@media (max-width: 650px) {
+  main ul {
+    grid-template-columns: 1fr;
+  }
+}
+li.dev-item {
+  min-height: 50px;
+
+  padding: 20px;
+  box-shadow: 4px -4px 10px var(--darkerWhiteTransparent),
+    4px 4px 10px var(--darkTransparent);
+  padding: 20px;
+  border-radius: 40px;
+  border: 1px rad;
+  background: linear-gradient(
+    135deg,
+    var(--darkerWhiteTransparent),
+    var(--transparent)
+  );
+}
+li.dev-item:hover {
+  background: var(--darkerWhiteTransparent);
+  box-shadow: inset -2px -2px 4px var(--darkerWhiteTransparent),
+    inset 2px 2px 4px var(--darkTransparent);
+}
+li.dev-item header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+li.dev-item header img {
+  border-bottom: 20px;
+  width: 80px;
+  height: 80px;
+  border-radius: 40%;
+  box-shadow: 3px -3px 7px var(--darkerWhiteTransparent),
+    3px 3px 7px var(--darkTransparent);
+}
+li.dev-item header .user-info {
+  margin-left: 20px;
+}
+li.dev-item p {
+  color: var(--dark);
+  font-size: 14px;
+  line-height: 20px;
+  padding: 10px;
+}
+.button a {
+  color: var(--primary);
+  font-size: 14px;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 40px;
+  box-shadow: 3px -3px 7px var(--darkerWhiteTransparent),
+    3px 3px 7px var(--darkTransparent);
+  margin-left: 7px;
+  margin: 10px;
+  padding-bottom: 10px;
+}
+.button a:hover {
+  color: var(--secondary);
+  box-shadow: inset -2px -2px 4px var(--darkerWhiteTransparent),
+    inset 2px 2px 4px var(--darkTransparent);
+}
+.user-info strong {
+  display: block;
+  font-size: 16px;
+  color: var(--darker);
+}
+.user-info span {
+  display: block;
+  font-size: 14px;
+  padding-top: 10px;
+  color: var(--darker);
+}
+
+.techs {
+  font-size: 13px;
+  color: var(--regular);
+  margin-top: 3px;
+}
+
+.user-info code {
+  color: var(--dark);
+  border-radius: 2px;
+}
+.button img {
+  margin-right: 10px;
+  margin-left: 10px;
+  max-height: 15px;
+}
+
+.button a {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.button strong {
+  margin-right: 10px;
+}
+#alterar a {
+  background: var(--alter);
+  box-shadow: inset -2px -2px 4px var(--darkerWhiteTransparent),
+    inset 2px 2px 4px var(--darkTransparent);
+}
+#alterar a:hover {
+  background: var(--danger);
+  box-shadow: 3px -3px 7px var(--darkerWhiteTransparent),
+    3px 3px 7px var(--darkTransparent);
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
